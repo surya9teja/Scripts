@@ -91,6 +91,7 @@ fi
 echo ""
 echo "Installing Tailwind CSS"
 
+cd ~/BOA-Editors-Portal
 ./vendor/bin/sail npm install
 
 ./vendor/bin/sail npm install -D tailwindcss postcss autoprefixer
@@ -130,7 +131,7 @@ export default defineConfig({
             'resources/js/app.js',
         ]),
     ],
-});" > ./vite.config.js
+});" >  ~/BOA-Editors-Portal/vite.config.js
 
 
 
