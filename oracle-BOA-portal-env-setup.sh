@@ -65,7 +65,9 @@ docker run --rm \
     laravelsail/php81-composer:latest \
     bash -c "laravel new BOA-Editors-Portal && cd BOA-Editors-Portal && php ./artisan sail:install --with=mysql,redis,meilisearch,mailhog,selenium "
 
-cd BOA-Editors-Portal
+cd ~/BOA-Editors-Portal
+
+./vendor/bin/sail up -d
 
 ./vendor/bin/sail pull mysql
 ./vendor/bin/sail build
@@ -131,7 +133,7 @@ export default defineConfig({
             'resources/js/app.js',
         ]),
     ],
-});" >  ~/BOA-Editors-Portal/vite.config.js
+});" >  ./vite.config.js
 
 
 
