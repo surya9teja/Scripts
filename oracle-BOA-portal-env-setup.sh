@@ -50,6 +50,12 @@ else
     sh ./docker-installation.sh
 fi
 
+# Setting permissions for docker
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
+su -s ${USER}
+
+docker run hello-world
 # Change directory to the home directory
 cd ~
 
