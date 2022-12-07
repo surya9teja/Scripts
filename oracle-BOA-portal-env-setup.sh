@@ -20,14 +20,9 @@ sudo ufw allow ssh
 sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
 
-sudo ufw enable -y
+sudo ufw --force enable
 sudo ufw status
 echo ""
-echo "ufw firewall is now active with ssh, 80 and 443 ports open"
-
-# Install the required packages
-echo ""
-
 echo "ufw firewall is now active with ssh, 80 and 443 ports open"
 
 # Checking the Doker installation
