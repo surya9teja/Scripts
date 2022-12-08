@@ -101,13 +101,25 @@ cd ~/BOA-Editors-Portal
 
 
 # Editing the tailwind.config.js file to add contents option
-sed -i 's/contents: [],/contents: ["./resources/**/*.blade.php", "./resources/**/*.js","./resources/**/*.vue"],/g' tailwind.config.js
+# sed -i -e 's/abc/XYZ/g' /tmp/file.txt
+echo "/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    \"./resources/**/*.blade.php\",
+    \"./resources/**/*.js\",
+    \"./resources/**/*.vue\",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}" > ./tailwind.config.js
 
 # Add the @tailwind directives for each of Tailwind’s layers to your ./resources/css/app.css file.
 
-echo "@tailwind base; 
-@tailwind components; 
-@tailwind utilities;" >> ./resources/css/app.css
+grep -qxF '@tailwind base;' ./resources/css/app.css || echo -e '@tailwind base;\n' >> ./resources/css/app.css
+grep -qxF '@tailwind components;' ./resources/css/app.css || echo -e '@tailwind components;\n' >> ./resources/css/app.css
+grep -qxF '@tailwind utilities;' ./resources/css/app.css || echo  -e '@tailwind utilities;\n' >> ./resources/css/app.css
 
 echo "Tailwind CSS installed"
 
